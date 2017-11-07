@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'swace_Example' do
+  pod 'swace', :path => '../'
+
+  target 'swace_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
