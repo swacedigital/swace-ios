@@ -9,36 +9,36 @@
 import Foundation
 import UIKit
 
-enum RoutingError: Error {
+public enum RoutingError: Error {
     case doesNotExist
     case invalidNavigationData
 }
 
-class Router {
+public class Router {
     
-    static let shared = Router()
-    fileprivate static var internalScheme = "plick://"
+    public static let shared = Router()
+    public static var internalScheme = "plick://"
     fileprivate static var internalRoutes = [Route]()
     
-    class var baseURL: URL {
+    public class var baseURL: URL {
         return URL(string: Router.scheme)!
     }
     
-    class var scheme: String! {
+    public class var scheme: String! {
         get { return "\(Router.internalScheme)" }
         set { Router.internalScheme = newValue }
     }
-    var routes: [Route]! {
+    public var routes: [Route]! {
         get { return Router.internalRoutes }
         set { Router.internalRoutes = newValue }
     }
     
-    func set(scheme: String = Router.internalScheme, routes: [Route]? = nil) {
+    public func set(scheme: String = Router.internalScheme, routes: [Route]? = nil) {
         Router.scheme = scheme
         if let routes = routes { self.routes = routes }
     }
     
-    func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
+    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
         guard Router.canNavigateToPath(url.path) else { return false }
         var parsedOptions = [String: Any]()
         options.forEach { (key,value) in
@@ -48,11 +48,11 @@ class Router {
         return true
     }
     
-    class func navigate(to module: Module, options: [String: Any] = [:]) {
+    public class func navigate(to module: RoutableModule, options: [String: Any] = [:]) {
         navigateTo(internalScheme + module.path, options: options)
     }
     
-    class func navigateToModule(_ urn: String) {
+    public class func navigateToModule(_ urn: String) {
         guard let url = URL(string: urn) else { return }
         
         let (path, args) = parseURL(url)
@@ -61,7 +61,7 @@ class Router {
         }
     }
     
-    class func navigateTo(_ urn: String, from : Route? = nil, options: [String: Any]? = nil) {
+    public class func navigateTo(_ urn: String, from : Route? = nil, options: [String: Any]? = nil) {
         guard let url = URL(string: urn) else { return }
         
         let (path, _) = parseURL(url)
@@ -70,7 +70,7 @@ class Router {
         }
     }
     
-    class func canNavigateToPath(_ path: String) -> Bool {
+    public class func canNavigateToPath(_ path: String) -> Bool {
         do {
             _ =  try routeForPath(path)
             return true

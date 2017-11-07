@@ -8,33 +8,29 @@
 
 import Foundation
 
-protocol Routable {
+public protocol Routable {
     func take(_ arguments: [String: Any], from: Route?)
 }
 
-class Route: NSObject, Routable {
+public class Route: Routable {
     
-    var path: String!
-    var wireframe: BaseWireframe!
-    
-    override init(){ }
-    
-    init(module: Module, wireframe: BaseWireframe) {
-        super.init()
+    public let path: String
+    public let wireframe: BaseWireframe!
+
+    public init(module: RoutableModule, wireframe: BaseWireframe) {
         self.path = module.path
         self.wireframe = wireframe
         self.wireframe.route = self
     }
     
-    init(path: String, wireframe: BaseWireframe) {
-        super.init()
+    public init(path: String, wireframe: BaseWireframe) {
         self.path = path
         self.wireframe = wireframe
         self.wireframe.route = self
     }
     
-    func take(_ arguments: [String : Any], from: Route?) {
-        print("Navigating from: \(from?.path ?? "nothing") to: \(path!)")
+    public func take(_ arguments: [String : Any], from: Route?) {
+        print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
         wireframe.present(arguments, from: from?.wireframe)
     }
     
