@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "swace_Example.app"
-               BlueprintName = "swace_Example"
+               BuildableName = "Swace_Example.app"
+               BlueprintName = "Swace_Example"
                ReferencedContainer = "container:swace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "swace_Tests.xctest"
-               BlueprintName = "swace_Tests"
+               BuildableName = "Swace_Tests.xctest"
+               BlueprintName = "Swace_Tests"
                ReferencedContainer = "container:swace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "swace_Tests.xctest"
-               BlueprintName = "swace_Tests"
+               BuildableName = "Swace_Tests.xctest"
+               BlueprintName = "Swace_Tests"
                ReferencedContainer = "container:swace.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,8 +58,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "swace_Example.app"
-            BlueprintName = "swace_Example"
+            BuildableName = "Swace_Example.app"
+            BlueprintName = "Swace_Example"
             ReferencedContainer = "container:swace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "swace_Example.app"
-            BlueprintName = "swace_Example"
+            BuildableName = "Swace_Example.app"
+            BlueprintName = "Swace_Example"
             ReferencedContainer = "container:swace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -101,8 +101,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "swace_Example.app"
-            BlueprintName = "swace_Example"
+            BuildableName = "Swace_Example.app"
+            BlueprintName = "Swace_Example"
             ReferencedContainer = "container:swace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

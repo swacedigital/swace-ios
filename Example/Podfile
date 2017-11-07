@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'swace_Example' do
-  pod 'swace', :path => '../'
+target 'Swace_Example' do
+  pod 'Swace', :path => '../'
 
-  target 'swace_Tests' do
+  target 'Swace_Tests' do
     inherit! :search_paths
 
     

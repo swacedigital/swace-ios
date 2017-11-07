@@ -16,7 +16,14 @@
 		71D78BF9BF3CE23CC5525F7B2848DBB1 /* Pods-swace_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71D05DBC789E32A36DE921826DD3B563 /* Pods-swace_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7940E74D0D1862CF839BE81A8F1F299A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		9FD3B5F063AD1D6BD2A5C221908AC34D /* swace-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03593DBA3D384324A876525C6B1E2B44 /* swace-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3E4BBE435C02BCAC89588DBBD605ECA /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA95D07565813507A4B922350FD971 /* ReplaceMe.swift */; };
+		E12D9E611FB26871001EF118 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5D1FB26870001EF118 /* Route.swift */; };
+		E12D9E621FB26871001EF118 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5D1FB26870001EF118 /* Route.swift */; };
+		E12D9E631FB26871001EF118 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5E1FB26870001EF118 /* Router.swift */; };
+		E12D9E641FB26871001EF118 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5E1FB26870001EF118 /* Router.swift */; };
+		E12D9E651FB26871001EF118 /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5F1FB26870001EF118 /* Modules.swift */; };
+		E12D9E661FB26871001EF118 /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5F1FB26870001EF118 /* Modules.swift */; };
+		E12D9E671FB26871001EF118 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E601FB26871001EF118 /* BaseWireframe.swift */; };
+		E12D9E681FB26871001EF118 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E601FB26871001EF118 /* BaseWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,10 +38,10 @@
 
 /* Begin PBXFileReference section */
 		03593DBA3D384324A876525C6B1E2B44 /* swace-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "swace-umbrella.h"; sourceTree = "<group>"; };
-		0DAC50829B9299508F5DFAFC2D31A677 /* swace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = swace.framework; path = swace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1831FFA7AC5831A383DB9577E20CF1D3 /* swace.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = swace.modulemap; sourceTree = "<group>"; };
-		18BCC58C48F111E325AD2C7D9FC6BD35 /* Pods_swace_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_swace_Tests.framework; path = "Pods-swace_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2636B5A6DFD5DD22EF650176A5CB84FB /* Pods-swace_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-swace_Tests.modulemap"; sourceTree = "<group>"; };
+		0DAC50829B9299508F5DFAFC2D31A677 /* swace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = swace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1831FFA7AC5831A383DB9577E20CF1D3 /* swace.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = swace.modulemap; sourceTree = "<group>"; };
+		18BCC58C48F111E325AD2C7D9FC6BD35 /* Pods_swace_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swace_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2636B5A6DFD5DD22EF650176A5CB84FB /* Pods-swace_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-swace_Tests.modulemap"; sourceTree = "<group>"; };
 		2A1577CF33427950318202F220D632C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4C2BC80C21CF98FA7CEFFEE66E5FE2 /* Pods-swace_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-swace_Tests-dummy.m"; sourceTree = "<group>"; };
 		4E840F947DF9DA6C4109230E4CE41A50 /* Pods-swace_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-swace_Example-resources.sh"; sourceTree = "<group>"; };
@@ -50,14 +57,17 @@
 		87DF22F78FFCD8142E216851B9BFCFAE /* swace.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = swace.xcconfig; sourceTree = "<group>"; };
 		8C3EFED3EF995ED97F5DFFE682DBA7B5 /* Pods-swace_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-swace_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		92E28A6B8385C4A76026CEA809E51DDD /* Pods-swace_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-swace_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98646E3D98AEC76C56385E387298468C /* Pods-swace_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-swace_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9B337E5D216EAE3B6CA1D532EC6735E7 /* Pods-swace_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-swace_Tests-resources.sh"; sourceTree = "<group>"; };
-		A919779FC6D01DEF538F22EEA2E5E19E /* Pods-swace_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-swace_Example.modulemap"; sourceTree = "<group>"; };
-		CDAA95D07565813507A4B922350FD971 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = swace/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		A919779FC6D01DEF538F22EEA2E5E19E /* Pods-swace_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-swace_Example.modulemap"; sourceTree = "<group>"; };
 		D03D9AA8919547F0B9285F12BE0D8072 /* Pods-swace_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-swace_Example-dummy.m"; sourceTree = "<group>"; };
 		D252C536C8DF46E56242F6A5BAEDEC3E /* Pods-swace_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-swace_Example-umbrella.h"; sourceTree = "<group>"; };
-		E4015A9C4E78C8059B2C3EBBA07E8B18 /* Pods_swace_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_swace_Example.framework; path = "Pods-swace_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E12D9E5D1FB26870001EF118 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Swace/Classes/Route.swift; sourceTree = "<group>"; };
+		E12D9E5E1FB26870001EF118 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Swace/Classes/Router.swift; sourceTree = "<group>"; };
+		E12D9E5F1FB26870001EF118 /* Modules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Modules.swift; path = Swace/Classes/Modules.swift; sourceTree = "<group>"; };
+		E12D9E601FB26871001EF118 /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseWireframe.swift; path = Swace/Classes/BaseWireframe.swift; sourceTree = "<group>"; };
+		E4015A9C4E78C8059B2C3EBBA07E8B18 /* Pods_swace_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swace_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BABA25A5A60F499FBC7D8E993B2A32 /* Pods-swace_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-swace_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ECACD8249288F0AF49005B4134962A78 /* swace-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "swace-prefix.pch"; sourceTree = "<group>"; };
 		EE2524512F9637538E9BB19ECF755361 /* Pods-swace_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-swace_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -199,7 +209,10 @@
 		D94C88660B874592C6EF752B04217715 /* swace */ = {
 			isa = PBXGroup;
 			children = (
-				CDAA95D07565813507A4B922350FD971 /* ReplaceMe.swift */,
+				E12D9E601FB26871001EF118 /* BaseWireframe.swift */,
+				E12D9E5F1FB26870001EF118 /* Modules.swift */,
+				E12D9E5D1FB26870001EF118 /* Route.swift */,
+				E12D9E5E1FB26870001EF118 /* Router.swift */,
 				011F6DB823FDC02C38C348C449E39DC3 /* Support Files */,
 			);
 			name = swace;
@@ -296,6 +309,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					E2ABDAEC2DC94F2048196A0C945CAEB3 = {
+						LastSwiftMigration = 0910;
+					};
+					E8956278904ED5B2E28BE4828C95F646 = {
+						LastSwiftMigration = 0910;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -322,6 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5315E7785C70AED62DE6D0EC01EDCCB6 /* Pods-swace_Example-dummy.m in Sources */,
+				E12D9E671FB26871001EF118 /* BaseWireframe.swift in Sources */,
+				E12D9E651FB26871001EF118 /* Modules.swift in Sources */,
+				E12D9E631FB26871001EF118 /* Router.swift in Sources */,
+				E12D9E611FB26871001EF118 /* Route.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3E4BBE435C02BCAC89588DBBD605ECA /* ReplaceMe.swift in Sources */,
 				02B740E49E8CC213AD21B9A56257A688 /* swace-dummy.m in Sources */,
+				E12D9E681FB26871001EF118 /* BaseWireframe.swift in Sources */,
+				E12D9E661FB26871001EF118 /* Modules.swift in Sources */,
+				E12D9E641FB26871001EF118 /* Router.swift in Sources */,
+				E12D9E621FB26871001EF118 /* Route.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87DF22F78FFCD8142E216851B9BFCFAE /* swace.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -569,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98646E3D98AEC76C56385E387298468C /* Pods-swace_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -592,6 +622,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -603,6 +634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C3EFED3EF995ED97F5DFFE682DBA7B5 /* Pods-swace_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -627,6 +659,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -637,6 +670,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87DF22F78FFCD8142E216851B9BFCFAE /* swace.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

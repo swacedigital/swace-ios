@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'swace'
+  s.name             = 'Swace'
   s.version          = '0.1.0'
   s.summary          = 'Common components used that can be re-used in multiple apps'
 
@@ -30,7 +30,7 @@ This pod exists to be able to re-use and add code that is commonly shared among 
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'swace/Classes/**/*'
+  s.source_files = 'Swace/Classes/**/*'
 
   
   # s.resource_bundles = {

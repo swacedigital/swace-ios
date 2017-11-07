@@ -15,6 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B29723DCB738688A23E40D15 /* Pods_swace_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D083FA248E461503D8030 /* Pods_swace_Tests.framework */; };
+		E12D9E5A1FB26710001EF118 /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E591FB26710001EF118 /* Modules.swift */; };
+		E12D9E5C1FB2679C001EF118 /* ExampleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5B1FB2679C001EF118 /* ExampleWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,23 +31,25 @@
 
 /* Begin PBXFileReference section */
 		41A1CD759934FFC627CE2E80 /* Pods-swace_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swace_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swace_Tests/Pods-swace_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* swace_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swace_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* Swace_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swace_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* swace_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swace_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* Swace_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swace_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		638117E994447FC16B032A42 /* Pods-swace_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swace_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swace_Example/Pods-swace_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		67E2E4D37280527D8CBA5442 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		67E2E4D37280527D8CBA5442 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		68E2674F847E9992E51E6006 /* Pods-swace_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swace_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-swace_Example/Pods-swace_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7E0B26788A9259E0B05B4B25 /* Pods_swace_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swace_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9983FB61351B83568F985FCF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9983FB61351B83568F985FCF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BB8D083FA248E461503D8030 /* Pods_swace_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swace_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF6922C0EA2012DDF2820CB4 /* swace.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = swace.podspec; path = ../swace.podspec; sourceTree = "<group>"; };
+		CF6922C0EA2012DDF2820CB4 /* swace.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = swace.podspec; path = ../swace.podspec; sourceTree = "<group>"; };
+		E12D9E591FB26710001EF118 /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
+		E12D9E5B1FB2679C001EF118 /* ExampleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleWireframe.swift; sourceTree = "<group>"; };
 		FEAAE493174ADC401F8FCD2B /* Pods-swace_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swace_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swace_Tests/Pods-swace_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,8 +108,8 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* swace_Example.app */,
-				607FACE51AFB9204008FA782 /* swace_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* Swace_Example.app */,
+				607FACE51AFB9204008FA782 /* Swace_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +119,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				E12D9E591FB26710001EF118 /* Modules.swift */,
+				E12D9E5B1FB2679C001EF118 /* ExampleWireframe.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -162,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* swace_Example */ = {
+		607FACCF1AFB9204008FA782 /* Swace_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "swace_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swace_Example" */;
 			buildPhases = (
 				E3997EBFB4EAD3A5951B2B55 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -177,14 +183,14 @@
 			);
 			dependencies = (
 			);
-			name = swace_Example;
+			name = Swace_Example;
 			productName = swace;
-			productReference = 607FACD01AFB9204008FA782 /* swace_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* Swace_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* swace_Tests */ = {
+		607FACE41AFB9204008FA782 /* Swace_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "swace_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swace_Tests" */;
 			buildPhases = (
 				6414C4944ADE76C9AD6C60E0 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -198,9 +204,9 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = swace_Tests;
+			name = Swace_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* swace_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* Swace_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -237,8 +243,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* swace_Example */,
-				607FACE41AFB9204008FA782 /* swace_Tests */,
+				607FACCF1AFB9204008FA782 /* Swace_Example */,
+				607FACE41AFB9204008FA782 /* Swace_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -371,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				E12D9E5A1FB26710001EF118 /* Modules.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E12D9E5C1FB2679C001EF118 /* ExampleWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +396,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* swace_Example */;
+			target = 607FACCF1AFB9204008FA782 /* Swace_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -592,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "swace_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swace_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -601,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "swace_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swace_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
