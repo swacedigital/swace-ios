@@ -25,7 +25,7 @@ This pod exists to be able to re-use and add code that is commonly shared among 
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'andreas.ostman@swace.se' => 'andreas.ostman@swace.se' }
-  s.source           = { :git => 'https://github.com/swacedigital/swace-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/swacedigital/swace-ios.git', :tag => s.version.to_s, branch: 'master' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
