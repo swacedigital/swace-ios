@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'swace'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of swace.'
+  s.summary          = 'Common components used that can be re-used in multiple apps'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,19 +18,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This pod exists to be able to re-use and add code that is commonly shared among multiple projects.
                        DESC
 
-  s.homepage         = 'https://github.com/a.oshtman@gmail.com/swace'
+  s.homepage         = 'https://github.com/orgs/swacedigital/'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'a.oshtman@gmail.com' => 'a.oshtman@gmail.com' }
-  s.source           = { :git => 'https://github.com/a.oshtman@gmail.com/swace.git', :tag => s.version.to_s }
+  s.author           = { 'andreas.ostman@swace.se' => 'andreas.ostman@swace.se' }
+  s.source           = { :git => 'https://github.com/swacedigital/swace-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'swace/Classes/**/*'
+
   
   # s.resource_bundles = {
   #   'swace' => ['swace/Assets/*.png']
