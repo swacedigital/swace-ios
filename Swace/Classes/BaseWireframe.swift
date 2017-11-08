@@ -23,8 +23,6 @@ open class BaseWireframe: WireframeInput {
     public weak var currentView: UIViewController? { return self.view }
     public weak var source: BaseWireframe?
 
-    open static var didPrepare: Bool?
-
     public init() {  }
 
     public func topViewControllerInSelectedTab() -> UIViewController? {
@@ -67,6 +65,7 @@ open class BaseWireframe: WireframeInput {
 
     }
 
+    @discardableResult
     open func prepare(_ data: [String : Any]?) -> UIViewController? {
         return nil
     }
@@ -76,6 +75,10 @@ open class BaseWireframe: WireframeInput {
         view.dismiss(animated: true, completion: nil)
     }
 
+}
+
+public protocol ReusableWireframe {
+    static var didPrepare: Bool { get set}
 }
 
 public protocol WireframeInput {

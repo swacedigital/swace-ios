@@ -9,6 +9,14 @@
 import Foundation
 import swace
 
-class ExampleWireframe: BaseWireframe {
+class ExampleWireframe: BaseWireframe, ReusableWireframe {
 
+    static var didPrepare: Bool = false
+
+    override func prepare(_ data: [String : Any]?) -> UIViewController? {
+        guard !ExampleWireframe.didPrepare else { return tabbarControllerFromWindow(window!)?.selectedViewController }
+        let view = super.prepare(data)
+        ExampleWireframe.didPrepare = true
+        return view
+    }
 }
