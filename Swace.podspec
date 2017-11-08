@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Swace'
-  s.version          = '0.0.11'
+  s.version          = '0.0.12'
   s.summary          = 'Common components used that can be re-used in multiple apps'
 
 # This description is used to generate tags and improve search results.
