@@ -19,11 +19,11 @@ open class BaseWireframe: WireframeInput {
         get { return wireframeRoute }
         set { wireframeRoute = newValue }
     }
-    private weak var view: UIViewController?
+    open weak var view: UIViewController?
     public weak var currentView: UIViewController? { return self.view }
     public weak var source: BaseWireframe?
 
-    public static var didPrepare: Bool?
+    open static var didPrepare: Bool?
 
     public init() {  }
 
