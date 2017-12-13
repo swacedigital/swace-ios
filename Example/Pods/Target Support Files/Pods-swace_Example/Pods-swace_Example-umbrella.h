@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_swace_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_swace_ExampleVersionString[];
+FOUNDATION_EXPORT double Pods_Swace_ExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Swace_ExampleVersionString[];
 

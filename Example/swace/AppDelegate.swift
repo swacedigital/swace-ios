@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import swace
+import Swace
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,16 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        Router.shared.set(scheme: "app://", routes: [
+        Router.shared.set(routes: [
             Route(module: Modules.profile, wireframe: ExampleWireframe())
-        ])
+            ], for: Scheme(name: "epiceats://"))
 
         return true
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return Router.shared.resolve(url, options: options)
+        return try! Router.shared.resolve(url, options: options)
     }
 
 }

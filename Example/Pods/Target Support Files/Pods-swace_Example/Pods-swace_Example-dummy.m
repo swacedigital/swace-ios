@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_swace_Example : NSObject
+@interface PodsDummy_Pods_Swace_Example : NSObject
 @end
-@implementation PodsDummy_Pods_swace_Example
+@implementation PodsDummy_Pods_Swace_Example
 @end

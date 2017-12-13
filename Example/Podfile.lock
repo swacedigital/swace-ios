@@ -1,16 +1,16 @@
 PODS:
-  - swace (0.1.0)
+  - Swace (0.1.0)
 
 DEPENDENCIES:
-  - swace (from `../`)
+  - Swace (from `../`)
 
 EXTERNAL SOURCES:
-  swace:
+  Swace:
     :path: ../
 
 SPEC CHECKSUMS:
-  swace: fff73f9bfbf8892928b3f8da1ca8efc476648516
+  Swace: 924ba88a57d05bafc009079ece4db25e9476c6ba
 
-PODFILE CHECKSUM: dddab24cbc3b894edd5e174ec661de2f57d38811
+PODFILE CHECKSUM: e0461312cae9e02f79222607edc281db12d72916
 
 COCOAPODS: 1.3.1

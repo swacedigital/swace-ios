@@ -10,4 +10,5 @@ import Foundation
 
 public protocol RoutableModule {
     var path: String { get set }
+    var route: Route? { get set }
 }

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double swaceVersionNumber;
-FOUNDATION_EXPORT const unsigned char swaceVersionString[];
+FOUNDATION_EXPORT double SwaceVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwaceVersionString[];
 

@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## swace
+## Swace
 
 Copyright (c) 2017 a.oshtman@gmail.com <a.oshtman@gmail.com>
 

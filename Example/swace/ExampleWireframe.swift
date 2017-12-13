@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import swace
+import Swace
 
 class ExampleWireframe: BaseWireframe {
 

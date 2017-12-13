@@ -1,5 +1,5 @@
-framework module swace {
-  umbrella header "swace-umbrella.h"
+framework module Swace {
+  umbrella header "Swace-umbrella.h"
 
   export *
   module * { export * }

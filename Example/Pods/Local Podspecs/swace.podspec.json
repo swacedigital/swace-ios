@@ -1,22 +1,23 @@
 {
-  "name": "swace",
+  "name": "Swace",
   "version": "0.1.0",
-  "summary": "A short description of swace.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/a.oshtman@gmail.com/swace",
+  "summary": "Common components used that can be re-used in multiple apps",
+  "description": "This pod exists to be able to re-use and add code that is commonly shared among multiple projects.",
+  "homepage": "https://github.com/orgs/swacedigital/",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "a.oshtman@gmail.com": "a.oshtman@gmail.com"
+    "andreas.ostman@swace.se": "andreas.ostman@swace.se"
   },
   "source": {
-    "git": "https://github.com/a.oshtman@gmail.com/swace.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/swacedigital/swace-ios.git",
+    "tag": "0.1.0",
+    "branch": "master"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "swace/Classes/**/*"
+  "source_files": "Swace/Classes/**/*"
 }

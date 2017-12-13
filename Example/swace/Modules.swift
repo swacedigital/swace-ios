@@ -7,10 +7,11 @@
 //
 
 import Foundation
-import swace
+import Swace
 
 struct Modules: RoutableModule {
     var path: String
+    var route: Route?
 
     init(path: String) {
         self.path = path

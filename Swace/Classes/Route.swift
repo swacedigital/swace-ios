@@ -6,30 +6,36 @@
 //  Copyright © 2017 Epic Eats. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol Routable {
-    func take(_ arguments: [String: Any], from: Route?) throws
+    func take(url: URL?, arguments: [String: Any], from: Route?) throws
 }
 
 public class Route: Routable {
     
     open var path: String
+    public var scheme = Scheme(name: "")
+    public var url: URL? { return URL(string: scheme.name + path) }
     public let wireframe: BaseWireframe!
+    public let module: RoutableModule!
 
     public init(module: RoutableModule, wireframe: BaseWireframe?) {
         self.path = module.path
         self.wireframe = wireframe
+        self.module = module
         self.wireframe.route = self
+        self.module.route = self
     }
     
     public init(path: String, wireframe: BaseWireframe?) {
         self.path = path
         self.wireframe = wireframe
+        self.module = nil
         self.wireframe.route = self
     }
     
-    public func take(_ arguments: [String : Any], from: Route?) throws {
+    public func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
         print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
         try wireframe.present(arguments, from: from?.wireframe)
     }
@@ -42,4 +48,9 @@ public class ExternalRoute: Route {
         super.init(module: module, wireframe: nil)
     }
     
+    public override func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
+        guard let url = url else { throw RoutingError.invalidURL }
+        guard UIApplication.shared.canOpenURL(url) else { throw RoutingError.invalidURL }
+        UIApplication.shared.openURL(url)
+    }
 }

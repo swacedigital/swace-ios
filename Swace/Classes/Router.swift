@@ -11,83 +11,72 @@ import UIKit
 
 public enum RoutingError: Error {
     case doesNotExist
+    case urlSchemeMissing
     case invalidNavigationData
+    case internalSchemeNotSet
+    case invalidURL
+    case missingModuleRoute
+}
+
+public struct Scheme: Hashable {
+    let name: String
+    public var hashValue: Int { return name.hashValue }
+    public static func ==(lhs: Scheme, rhs: Scheme) -> Bool { return lhs.name == rhs.name }
 }
 
 public class Router {
-    
+
     public static let shared = Router()
-    public static var internalScheme = ""
-    fileprivate static var internalRoutes = [Route]()
+    fileprivate static var internalRoutes = [Scheme: [Route]]()
     
-    public class var baseURL: URL {
-        return URL(string: Router.scheme)!
+    public func set(routes: [Route], for scheme: Scheme) {
+        routes.forEach{ $0.scheme = scheme }
+        Router.internalRoutes[scheme] = routes
     }
     
-    public class var scheme: String! {
-        get { return "\(Router.internalScheme)" }
-        set { Router.internalScheme = newValue }
-    }
-    public var routes: [Route]! {
-        get { return Router.internalRoutes }
-        set { Router.internalRoutes = newValue }
-    }
-    
-    public func set(scheme: String = Router.internalScheme, routes: [Route]? = nil) {
-        Router.scheme = scheme
-        if let routes = routes { self.routes = routes }
-    }
-    
-    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-        guard Router.canNavigateToPath(url.path) else { return false }
+    // Navigating from outside app
+    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) throws -> Bool {
+        guard let scheme = url.scheme else { throw RoutingError.urlSchemeMissing }
+        try Router.route(for: url)
+        
         var parsedOptions = [String: Any]()
-        options.forEach { (key,value) in
-            parsedOptions[key.rawValue] = value
-        }
-        Router.navigateTo(url.path, options: parsedOptions)
+        options.forEach { (k,v) in parsedOptions[k.rawValue] = v }
+        
+        try Router.navigate(to: url.absoluteString, scheme: scheme, options: parsedOptions)
         return true
     }
     
-    public class func navigate(to module: RoutableModule, options: [String: Any] = [:], from: Route? = nil) {
-        navigateTo(internalScheme + module.path, from: from, options: options)
+    // Navigating from in-app
+    public class func navigate(to module: RoutableModule, options: [String: Any] = [:], from: Route? = nil) throws {
+        guard let route = module.route else { throw RoutingError.missingModuleRoute }
+        try navigate(to: module.path, scheme: route.scheme.name, from: from, options: options)
     }
     
-    public class func navigateToModule(_ urn: String) {
-        guard let url = URL(string: urn) else { return }
+    public class func navigate(to urn: String) throws {
+        try navigate(to: urn)
+    }
+    
+    private class func navigate(to urn: String, scheme: String, from : Route? = nil, options: [String: Any]? = nil) throws {
+        guard let url = URL(string: scheme + urn) else { throw RoutingError.invalidURL }
         
-        let (path, args) = parseURL(url)
-        if let route = try? routeForPath(path) {
-            try! route.take(args, from: nil)
-        }
-    }
-    
-    public class func navigateTo(_ urn: String, from : Route? = nil, options: [String: Any]? = nil) {
-        guard let url = URL(string: urn) else { return }
+        var queryParams = parseURL(url)
+        queryParams.merge(options ?? [:]) { (k1, k2) -> Any in return k1 }
         
-        let (path, _) = parseURL(url)
-        if let route = try? routeForPath(path) {
-            try! route.take(options ?? [:], from: from)
-        }
+        let matchingRoute = try route(for: url)
+        try matchingRoute.take(url: url, arguments: queryParams, from: from)
     }
     
-    public class func canNavigateToPath(_ path: String) -> Bool {
-        do {
-            _ =  try routeForPath(path)
-            return true
-        }
-        catch { return false }
+    @discardableResult fileprivate class func route(for url: URL) throws -> Route {
+        guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
+        guard let match = Router.internalRoutes[Scheme(name: schemeName)]?.filter({ $0.path == url.host }).first else { throw RoutingError.doesNotExist }
+        return match
     }
-    
-    fileprivate class func routeForPath(_ path: String) throws -> Route {
-        if let route = internalRoutes.filter({$0.path == path}).first { return route }
-        else { throw RoutingError.doesNotExist }
-    }
-    
-    fileprivate class func parseURL(_ url: URL) -> (path: String, options: [String : Any]){
+
+    fileprivate class func parseURL(_ url: URL) -> [String : Any] {
         let components = URLComponents(string: url.absoluteString)
         var options = [String: Any]()
         components?.queryItems?.forEach { options[$0.name] = $0.value }
-        return (url.host ?? "", options)
+        return options
     }
 }
 

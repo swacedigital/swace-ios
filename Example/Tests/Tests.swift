@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import swace
+import Swace
 
 class Tests: XCTestCase {
     
