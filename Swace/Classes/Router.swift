@@ -40,15 +40,16 @@ public class Router {
     }
     
     // Navigating from outside app
-    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) throws -> Bool {
+    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) throws {
         guard let scheme = url.scheme else { throw RoutingError.urlSchemeMissing }
         try Router.route(for: url)
         
         var parsedOptions = [String: Any]()
         options.forEach { (k,v) in parsedOptions[k.rawValue] = v }
-        
-        try Router.navigate(to: url.absoluteString, scheme: scheme, options: parsedOptions)
-        return true
+
+        let routeScheme = scheme + "://"
+        let path = url.absoluteString.replacingOccurrences(of: routeScheme , with: "")
+        try Router.navigate(to: path, scheme: scheme, options: parsedOptions)
     }
     
     // Navigating from in-app
@@ -73,7 +74,10 @@ public class Router {
     
     @discardableResult fileprivate class func route(for url: URL) throws -> Route {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
-        guard let match = Router.internalRoutes[Scheme(name: schemeName)]?.filter({ $0.path == url.host }).first else { throw RoutingError.doesNotExist }
+        guard let match = Router.internalRoutes[Scheme(name: schemeName + "://")]?.filter({
+            print("Matching \(url.host) against \($0.path)")
+            return $0.path == url.host
+        }).first else { throw RoutingError.doesNotExist }
         return match
     }
 

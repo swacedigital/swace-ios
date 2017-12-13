@@ -20,7 +20,7 @@ public class Route: Routable {
     public let wireframe: BaseWireframe!
     public let module: RoutableModule!
 
-    public init(module: RoutableModule, wireframe: BaseWireframe?) {
+    public init(module: RoutableModule, wireframe: BaseWireframe = BaseWireframe()) {
         self.path = module.path
         self.wireframe = wireframe
         self.module = module
@@ -45,7 +45,7 @@ public class Route: Routable {
 public class ExternalRoute: Route {
     
     public init(module: RoutableModule) {
-        super.init(module: module, wireframe: nil)
+        super.init(module: module)
     }
     
     public override func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
