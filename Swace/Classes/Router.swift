@@ -48,8 +48,8 @@ public class Router {
         return true
     }
     
-    public class func navigate(to module: RoutableModule, options: [String: Any] = [:]) {
-        navigateTo(internalScheme + module.path, options: options)
+    public class func navigate(to module: RoutableModule, options: [String: Any] = [:], from: Route? = nil) {
+        navigateTo(internalScheme + module.path, from: from, options: options)
     }
     
     public class func navigateToModule(_ urn: String) {
