@@ -28,7 +28,7 @@ This pod exists to be able to re-use and add code that is commonly shared among 
   s.source           = { :git => 'https://github.com/swacedigital/swace-ios.git', :tag => s.version.to_s, branch: 'master' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'Swace/Classes/**/*'
 
@@ -36,6 +36,11 @@ This pod exists to be able to re-use and add code that is commonly shared among 
   # s.resource_bundles = {
   #   'swace' => ['swace/Assets/*.png']
   # }
+
+    s.test_spec 'Tests' do |test_spec|
+        test_spec.source_files = 'Tests/*.{h,m}'
+        test_spec.dependency 'OCMock' # This dependency will only be linked with your tests.
+    end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

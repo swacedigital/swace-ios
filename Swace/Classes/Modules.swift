@@ -8,7 +8,11 @@
 
 import Foundation
 
-public protocol RoutableModule {
-    var path: String { get set }
-    var route: Route? { get set }
+open class RoutableModule {
+    internal var route: Route?
+    let path: String
+
+    public init(path: String) {
+        self.path = path
+    }
 }

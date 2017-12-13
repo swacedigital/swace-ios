@@ -17,6 +17,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B29723DCB738688A23E40D15 /* Pods_swace_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D083FA248E461503D8030 /* Pods_swace_Tests.framework */; };
 		C081086CFA4017703E1FEB1B /* Pods_Swace_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8780F4244EE278196030FF7F /* Pods_Swace_Tests.framework */; };
+		E11F78DB1FE1C22B0055E829 /* RoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11F78D91FE1C2170055E829 /* RoutingTests.swift */; };
 		E12D9E5A1FB26710001EF118 /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E591FB26710001EF118 /* Modules.swift */; };
 		E12D9E5C1FB2679C001EF118 /* ExampleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D9E5B1FB2679C001EF118 /* ExampleWireframe.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		A894C786D3412850CBA57B04 /* Pods-Swace_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swace_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swace_Example/Pods-Swace_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BB8D083FA248E461503D8030 /* Pods_swace_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swace_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6922C0EA2012DDF2820CB4 /* swace.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = swace.podspec; path = ../swace.podspec; sourceTree = "<group>"; };
+		E11F78D91FE1C2170055E829 /* RoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTests.swift; sourceTree = "<group>"; };
 		E12D9E591FB26710001EF118 /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
 		E12D9E5B1FB2679C001EF118 /* ExampleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleWireframe.swift; sourceTree = "<group>"; };
 		EF606E3129FEF28B751BF5B2 /* Pods-Swace_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swace_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swace_Tests/Pods-Swace_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				E11F78D91FE1C2170055E829 /* RoutingTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11F78DB1FE1C22B0055E829 /* RoutingTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

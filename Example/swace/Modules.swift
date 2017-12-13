@@ -9,13 +9,7 @@
 import Foundation
 import Swace
 
-struct Modules: RoutableModule {
-    var path: String
-    var route: Route?
-
-    init(path: String) {
-        self.path = path
-    }
+class Modules: RoutableModule {
 
     static let profile = Modules(path: "profile")
 }

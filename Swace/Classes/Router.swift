@@ -18,8 +18,13 @@ public enum RoutingError: Error {
     case missingModuleRoute
 }
 
-public struct Scheme: Hashable {
-    let name: String
+public class Scheme: Hashable {
+    public let name: String
+
+    public init(name: String) {
+        self.name = name
+    }
+
     public var hashValue: Int { return name.hashValue }
     public static func ==(lhs: Scheme, rhs: Scheme) -> Bool { return lhs.name == rhs.name }
 }
