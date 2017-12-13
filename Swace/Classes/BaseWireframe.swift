@@ -19,7 +19,7 @@ open class BaseWireframe: WireframeInput {
         get { return wireframeRoute }
         set { wireframeRoute = newValue }
     }
-    private weak var view: UIViewController?
+    open weak var view: UIViewController?
     public weak var currentView: UIViewController? { return self.view }
     public weak var source: BaseWireframe?
 
@@ -63,15 +63,15 @@ open class BaseWireframe: WireframeInput {
         set { tabController = newValue}
     }
 
-    public func present(_ data: [String : Any]?, from source: BaseWireframe?) {
+    open func present(_ data: [String : Any]?, from source: BaseWireframe?) throws {
 
     }
 
-    public func prepare(_ data: [String : Any]?) -> UIViewController? {
+    open func prepare(_ data: [String : Any]?) -> UIViewController? {
         return nil
     }
 
-    public func dismiss(_ view: Any?){
+    open func dismiss(_ view: Any?){
         guard let view = view as? UIViewController else { return }
         view.dismiss(animated: true, completion: nil)
     }

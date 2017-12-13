@@ -17,7 +17,7 @@ public enum RoutingError: Error {
 public class Router {
     
     public static let shared = Router()
-    public static var internalScheme = "plick://"
+    public static var internalScheme = ""
     fileprivate static var internalRoutes = [Route]()
     
     public class var baseURL: URL {
@@ -57,7 +57,7 @@ public class Router {
         
         let (path, args) = parseURL(url)
         if let route = try? routeForPath(path) {
-            route.take(args, from: nil)
+            try! route.take(args, from: nil)
         }
     }
     
@@ -66,7 +66,7 @@ public class Router {
         
         let (path, _) = parseURL(url)
         if let route = try? routeForPath(path) {
-            route.take(options ?? [:], from: from)
+            try! route.take(options ?? [:], from: from)
         }
     }
     

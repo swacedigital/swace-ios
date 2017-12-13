@@ -9,29 +9,37 @@
 import Foundation
 
 public protocol Routable {
-    func take(_ arguments: [String: Any], from: Route?)
+    func take(_ arguments: [String: Any], from: Route?) throws
 }
 
 public class Route: Routable {
     
-    public let path: String
+    open var path: String
     public let wireframe: BaseWireframe!
 
-    public init(module: RoutableModule, wireframe: BaseWireframe) {
+    public init(module: RoutableModule, wireframe: BaseWireframe?) {
         self.path = module.path
         self.wireframe = wireframe
         self.wireframe.route = self
     }
     
-    public init(path: String, wireframe: BaseWireframe) {
+    public init(path: String, wireframe: BaseWireframe?) {
         self.path = path
         self.wireframe = wireframe
         self.wireframe.route = self
     }
     
-    public func take(_ arguments: [String : Any], from: Route?) {
+    public func take(_ arguments: [String : Any], from: Route?) throws {
         print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
-        wireframe.present(arguments, from: from?.wireframe)
+        try wireframe.present(arguments, from: from?.wireframe)
+    }
+    
+}
+
+public class ExternalRoute: Route {
+    
+    public init(module: RoutableModule) {
+        super.init(module: module, wireframe: nil)
     }
     
 }
