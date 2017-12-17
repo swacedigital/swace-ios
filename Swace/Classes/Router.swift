@@ -63,7 +63,7 @@ public class Router {
     }
     
     private class func navigate(to urn: String, scheme: String, from : Route? = nil, options: [String: Any]? = nil) throws {
-        guard let url = URL(string: scheme + urn) else { throw RoutingError.invalidURL }
+        guard let url = URL(string: scheme + "://" + urn) else { throw RoutingError.invalidURL }
         
         var queryParams = parseURL(url)
         queryParams.merge(options ?? [:]) { (k1, k2) -> Any in return k1 }
@@ -74,7 +74,7 @@ public class Router {
     
     @discardableResult fileprivate class func route(for url: URL) throws -> Route {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
-        guard let match = Router.internalRoutes[Scheme(name: schemeName + "://")]?.filter({
+        guard let match = Router.internalRoutes[Scheme(name: schemeName)]?.filter({
             print("Matching \(url.host) against \($0.path)")
             return $0.path == url.host
         }).first else { throw RoutingError.doesNotExist }
@@ -86,6 +86,21 @@ public class Router {
         var options = [String: Any]()
         components?.queryItems?.forEach { options[$0.name] = $0.value }
         return options
+    }
+    
+    // Share route url
+    public class func shareUrl(from module: RoutableModule, options: [String: Any?] = [:]) throws -> URL? {
+        guard let route = module.route else { throw RoutingError.missingModuleRoute }
+        var components = URLComponents()
+        components.scheme = route.scheme.name
+        components.host = route.path
+        var query = [URLQueryItem]()
+        options.forEach {
+            let item = URLQueryItem(name: $0.key, value: $0.value as? String)
+            query.append(item)
+        }
+        components.queryItems = query
+        return components.url
     }
 }
 
