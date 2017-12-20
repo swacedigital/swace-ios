@@ -50,7 +50,16 @@ public class ExternalRoute: Route {
     
     public override func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
         guard let url = url else { throw RoutingError.invalidURL }
-        guard UIApplication.shared.canOpenURL(url) else { throw RoutingError.invalidURL }
-        UIApplication.shared.openURL(url)
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = []
+        arguments.forEach { (key, value) in
+            let item = URLQueryItem(name: key, value: value as? String)
+            components?.queryItems?.append(item)
+        }
+        
+        guard let trueUrl = components?.url else { throw RoutingError.invalidURL }
+        
+        guard UIApplication.shared.canOpenURL(trueUrl) else { throw RoutingError.invalidURL }
+        UIApplication.shared.openURL(trueUrl)
     }
 }
