@@ -18,6 +18,26 @@ public enum RoutingError: Error {
     case missingModuleRoute
 }
 
+public protocol RouteDataKey {
+    var rawValue: String { get }
+}
+
+public extension Dictionary {
+    subscript(enumKey: RouteDataKey) -> Value? {
+        get {
+            if let key = enumKey.rawValue as? Key {
+                return self[key]
+            }
+            return nil
+        }
+        set {
+            if let key = enumKey.rawValue as? Key {
+                self[key] = newValue
+            }
+        }
+    }
+}
+
 public class Scheme: Hashable {
     public let name: String
 
