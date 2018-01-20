@@ -12,6 +12,7 @@ import UIKit
 public enum RoutingError: Error {
     case doesNotExist
     case urlSchemeMissing
+    case urlHostMissing
     case invalidNavigationData
     case internalSchemeNotSet
     case invalidURL
@@ -97,10 +98,10 @@ public class Router {
     
     @discardableResult fileprivate class func route(for url: URL, using scheme: Scheme) throws -> Route {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
+        guard let hostName = url.host else { throw RoutingError.urlHostMissing }
         guard let match = Router.internalRoutes[scheme]?.filter({
-            let path = url.absoluteString[scheme.full.endIndex..<url.absoluteString.endIndex]
-            print("Matching \(path) against \($0.path)")
-            return $0.path == path
+            print("Matching \(hostName) against \($0.path)")
+            return $0.path == hostName
         }).first else { throw RoutingError.doesNotExist }
         return match
     }
