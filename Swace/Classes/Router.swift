@@ -55,6 +55,9 @@ public class Scheme: Hashable {
 public class Router {
 
     public static let shared = Router()
+    public var routes: [Route] {
+        return Router.internalRoutes.reduce([], { $0 + $1.value })
+    }
     fileprivate static var internalRoutes = [Scheme: [Route]]()
     
     public func set(routes: [Route], for scheme: Scheme) {

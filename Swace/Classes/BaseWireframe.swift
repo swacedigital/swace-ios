@@ -23,7 +23,7 @@ open class BaseWireframe: WireframeInput {
     public weak var currentView: UIViewController? { return self.view }
     public weak var source: BaseWireframe?
 
-    public static var didPrepare: Bool?
+    open var didPrepare: Bool = false
 
     public init() {  }
 
