@@ -103,7 +103,6 @@ public class Router {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
         guard let hostName = url.host else { throw RoutingError.urlHostMissing }
         guard let match = Router.internalRoutes[scheme]?.filter({
-            print("Matching \(hostName) against \($0.path)")
             return $0.path == hostName
         }).first else { throw RoutingError.doesNotExist }
         return match
