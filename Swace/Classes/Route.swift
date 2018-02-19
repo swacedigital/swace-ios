@@ -36,7 +36,9 @@ public class Route: Routable {
     }
     
     public func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
-        print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
+        #if DEBUG
+            print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
+        #endif
         try wireframe.present(arguments, from: from?.wireframe)
     }
     
