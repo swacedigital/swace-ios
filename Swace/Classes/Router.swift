@@ -47,7 +47,6 @@ public class Scheme: Hashable {
         self.name = name
         self.strict = strict
     }
-    public var full: String { return strict ? name + "://" : name }
     public var hashValue: Int { return name.hashValue }
     public static func ==(lhs: Scheme, rhs: Scheme) -> Bool { return lhs.name == rhs.name }
 }
@@ -68,15 +67,22 @@ public class Router {
     // Navigating from outside app
     public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) throws {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
+        guard let host = url.host else { throw RoutingError.urlHostMissing }
         let scheme = Scheme(name: schemeName)
 
         try Router.route(for: url, using: scheme)
         
-        var parsedOptions = [String: Any]()
+        var parsedOptions = parseURL(url)
         options.forEach { (k,v) in parsedOptions[k.rawValue] = v }
-
-        let path = url.absoluteString.replacingOccurrences(of: scheme.full , with: "")
-        try Router.navigate(to: path, scheme: scheme, options: parsedOptions)
+        
+        try Router.navigate(to: host, scheme: scheme, options: parsedOptions)
+    }
+    
+    fileprivate func parseURL(_ url: URL) -> [String : Any] {
+        let components = URLComponents(string: url.absoluteString)
+        var options = [String: Any]()
+        components?.queryItems?.forEach { options[$0.name] = $0.value }
+        return options
     }
     
     // Navigating from in-app
@@ -89,30 +95,27 @@ public class Router {
         try navigate(to: urn)
     }
     
-    private class func navigate(to urn: String, scheme: Scheme, from : Route? = nil, options: [String: Any]? = nil) throws {
-        guard let url = URL(string: scheme.full + urn) else { throw RoutingError.invalidURL }
-        
-        var queryParams = parseURL(url)
-        queryParams.merge(options ?? [:]) { (k1, k2) -> Any in return k1 }
-        
-        let matchingRoute = try route(for: url, using: scheme)
-        try matchingRoute.take(url: url, arguments: queryParams, from: from)
+    private class func createURL(urn: String, scheme: String) -> URL? {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = urn
+        return components.url
     }
     
-    @discardableResult fileprivate class func route(for url: URL, using scheme: Scheme) throws -> Route {
+    private class func navigate(to urn: String, scheme: Scheme, from : Route? = nil, options: [String: Any]? = nil) throws {
+        guard let url = createURL(urn: scheme.strict ? urn : "", scheme: scheme.name) else { throw RoutingError.invalidURL }
+        
+        let matchingRoute = try route(for: url, using: scheme, host: scheme.strict ? nil : urn)
+        try matchingRoute.take(url: url, arguments: options ?? [:], from: from)
+    }
+    
+    @discardableResult fileprivate class func route(for url: URL, using scheme: Scheme, host: String? = nil) throws -> Route {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
-        guard let hostName = url.host else { throw RoutingError.urlHostMissing }
+        guard let hostName = url.host ?? host else { throw RoutingError.urlHostMissing }
         guard let match = Router.internalRoutes[scheme]?.filter({
             return $0.path == hostName
         }).first else { throw RoutingError.doesNotExist }
         return match
-    }
-
-    fileprivate class func parseURL(_ url: URL) -> [String : Any] {
-        let components = URLComponents(string: url.absoluteString)
-        var options = [String: Any]()
-        components?.queryItems?.forEach { options[$0.name] = $0.value }
-        return options
     }
     
     // Share route url
