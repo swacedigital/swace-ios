@@ -42,6 +42,8 @@ public extension Dictionary {
 public class Scheme: Hashable {
     public let name: String
     public let strict: Bool
+    
+    var isHttp: Bool { return name == "http" || name == "https" }
 
     public init(name: String, strict: Bool = true) {
         self.name = name
@@ -65,20 +67,26 @@ public class Router {
     }
     
     // Navigating from outside app
-    public func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) throws {
+    public class func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) throws {
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
         guard let host = url.host else { throw RoutingError.urlHostMissing }
+        
         let scheme = Scheme(name: schemeName)
-
-        try Router.route(for: url, using: scheme)
         
         var parsedOptions = parseURL(url)
         options.forEach { (k,v) in parsedOptions[k.rawValue] = v }
         
+        guard !scheme.isHttp else {
+            let externalRoute = ExternalRoute()
+            try externalRoute.take(url: url, arguments: parsedOptions)
+            return
+        }
+
+        try Router.route(for: url, using: scheme)
         try Router.navigate(to: host, scheme: scheme, options: parsedOptions)
     }
     
-    fileprivate func parseURL(_ url: URL) -> [String : Any] {
+    fileprivate class func parseURL(_ url: URL) -> [String : Any] {
         let components = URLComponents(string: url.absoluteString)
         var options = [String: Any]()
         components?.queryItems?.forEach { options[$0.name] = $0.value }

@@ -32,10 +32,10 @@ public class Route: Routable {
         self.path = path
         self.wireframe = wireframe
         self.module = nil
-        self.wireframe.route = self
+        self.wireframe?.route = self
     }
     
-    public func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
+    public func take(url: URL? = nil, arguments: [String : Any], from: Route? = nil) throws {
         #if DEBUG
             print("Navigating from: \(from?.path ?? "nothing") to: \(path)")
         #endif
@@ -46,11 +46,15 @@ public class Route: Routable {
 
 public class ExternalRoute: Route {
     
+    public init() {
+        super.init(path: "", wireframe: nil)
+    }
+    
     public init(module: RoutableModule) {
         super.init(module: module)
     }
     
-    public override func take(url: URL? = nil, arguments: [String : Any], from: Route?) throws {
+    public override func take(url: URL? = nil, arguments: [String : Any], from: Route? = nil) throws {
         guard let url = url else { throw RoutingError.invalidURL }
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
 
