@@ -67,7 +67,9 @@ public class Router {
     }
     
     // Navigating from outside app
-    public class func resolve(_ url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) throws {
+    public class func resolve(_ url: URL?, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) throws {
+        
+        guard let url = url else { throw RoutingError.invalidURL }
         guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
         guard let host = url.host else { throw RoutingError.urlHostMissing }
         

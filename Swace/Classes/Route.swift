@@ -58,7 +58,7 @@ public class ExternalRoute: Route {
         guard let url = url else { throw RoutingError.invalidURL }
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
 
-        if arguments.count > 0 {
+        if !arguments.isEmpty {
             components?.queryItems = []
             arguments.forEach { (key, value) in
                 let item = URLQueryItem(name: key, value: value as? String)
