@@ -101,10 +101,6 @@ public class Router {
         try navigate(to: module.path, scheme: route.scheme, from: from, options: options)
     }
     
-    public class func navigate(to urn: String) throws {
-        try navigate(to: urn)
-    }
-    
     private class func createURL(urn: String, scheme: String) -> URL? {
         var components = URLComponents()
         components.scheme = scheme
