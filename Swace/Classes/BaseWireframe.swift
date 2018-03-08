@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 open class BaseWireframe: WireframeInput {
-
+    
+    public enum WireframeError: Error {
+        case missingOverride
+    }
+    
     public var window: UIWindow? { get { return UIApplication.shared.keyWindow } }
     fileprivate var wireframeRoute: Route?
     fileprivate weak var navController: UINavigationController?
@@ -63,17 +67,16 @@ open class BaseWireframe: WireframeInput {
         set { tabController = newValue}
     }
 
-    open func present(_ data: [String : Any]?, from source: BaseWireframe?) throws {
-
+    open func present(_ data: [String : Any] = [:], from source: BaseWireframe?) throws {
+        throw WireframeError.missingOverride
     }
 
-    open func prepare(_ data: [String : Any]?) -> UIViewController? {
-        return nil
+    open func prepare(_ data: [String : Any] = [:]) throws -> UIViewController {
+        throw WireframeError.missingOverride
     }
 
-    open func dismiss(_ view: Any?){
-        guard let view = view as? UIViewController else { return }
-        view.dismiss(animated: true, completion: nil)
+    open func dismiss(_ view: UIViewController?) {
+        view?.dismiss(animated: true, completion: nil)
     }
 
 }
