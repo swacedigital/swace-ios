@@ -116,7 +116,7 @@ public class Router {
     }
     
     @discardableResult fileprivate class func route(for url: URL, using scheme: Scheme, host: String? = nil) throws -> Route {
-        guard let schemeName = url.scheme else { throw RoutingError.urlSchemeMissing }
+        guard let _ = url.scheme else { throw RoutingError.urlSchemeMissing }
         guard let hostName = url.host ?? host else { throw RoutingError.urlHostMissing }
         guard let match = Router.internalRoutes[scheme]?.filter({
             return $0.path == hostName
