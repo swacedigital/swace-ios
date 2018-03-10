@@ -9,7 +9,9 @@
 import Foundation
 
 open class RoutableModule {
-    internal var route: Route?
+
+    internal var _route: Route?
+    public var route: Route? { return _route }
     let path: String
 
     public init(path: String) {

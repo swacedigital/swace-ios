@@ -25,7 +25,7 @@ public class Route: Routable {
         self.wireframe = wireframe
         self.module = module
         self.wireframe.route = self
-        self.module.route = self
+        self.module._route = self
     }
     
     public init(path: String, wireframe: BaseWireframe?) {
