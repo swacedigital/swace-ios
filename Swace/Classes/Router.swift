@@ -43,7 +43,7 @@ public class Scheme: Hashable {
     public let name: String
     public let strict: Bool
     
-    var isHttp: Bool { return name == "http" || name == "https" }
+    var isExternal: Bool { return name == "http" || name == "https" || name == "tel" }
 
     public init(name: String, strict: Bool = true) {
         self.name = name
@@ -78,7 +78,7 @@ public class Router {
         var parsedOptions = parseURL(url)
         options.forEach { (k,v) in parsedOptions[k.rawValue] = v }
         
-        guard !scheme.isHttp else {
+        guard !scheme.isExternal else {
             let externalRoute = ExternalRoute()
             try externalRoute.take(url: url, arguments: parsedOptions)
             return
