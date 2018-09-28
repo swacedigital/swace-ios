@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'Swace'
+  s.name             = 'swace'
   s.version          = '0.1.0'
   s.summary          = 'Common components used that can be re-used in multiple apps'
 
@@ -24,7 +24,7 @@ This pod exists to be able to re-use and add code that is commonly shared among 
   s.homepage         = 'https://github.com/orgs/swacedigital/'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'andreas.ostman@swace.se' => 'andreas.ostman@swace.se' }
+  s.author           = { 'andreas.ostman@swace.se' => 'elliot.rask@swace.se' }
   s.source           = { :git => 'https://github.com/swacedigital/swace-ios.git', :tag => s.version.to_s, branch: 'master' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -37,10 +37,10 @@ This pod exists to be able to re-use and add code that is commonly shared among 
   #   'swace' => ['swace/Assets/*.png']
   # }
 
-    s.test_spec 'Tests' do |test_spec|
-        test_spec.source_files = 'Tests/*.{h,m}'
-        test_spec.dependency 'OCMock' # This dependency will only be linked with your tests.
-    end
+  # s.test_spec 'Tests' do |test_spec|
+  #     test_spec.source_files = 'Tests/*.{h,m}'
+  #     test_spec.dependency 'OCMock' # This dependency will only be linked with your tests.
+  # end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

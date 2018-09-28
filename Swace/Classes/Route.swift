@@ -69,8 +69,6 @@ public class ExternalRoute: Route {
         guard let trueUrl = components?.url else { throw RoutingError.invalidURL }
         
         guard UIApplication.shared.canOpenURL(trueUrl) else { throw RoutingError.invalidURL }
-
-        print("WIll open url: \(trueUrl)")
-        UIApplication.shared.openURL(trueUrl)
+        UIApplication.shared.open(trueUrl, options: [:], completionHandler: nil)
     }
 }

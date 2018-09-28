@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Router.shared.set(routes: [
             Route(module: Modules.profile, wireframe: ExampleWireframe())
-            ], for: Scheme(name: "epiceats://"))
+            ], for: Scheme(name: "myappscheme://"))
 
         return true
     }
